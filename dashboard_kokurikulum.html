@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal Kokurikulum</title>
+  <style>
+    :root{
+      --primary:#123b6d;
+      --primary2:#1d5d9b;
+      --accent:#f0b429;
+      --bg:#f4f7fb;
+      --card:#ffffff;
+      --text:#17324d;
+      --muted:#6b7c8f;
+      --shadow:0 12px 30px rgba(18,59,109,.10);
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter, "Segoe UI", Arial, sans-serif;
+      background:linear-gradient(180deg,#eef5fc 0%,var(--bg) 35%,#fff 100%);
+      color:var(--text);
+      min-height:100vh;
+    }
+
+    .hero{
+      position:relative;
+      overflow:hidden;
+      background:linear-gradient(135deg,var(--primary),var(--primary2));
+      color:#fff;
+      padding:48px 20px 72px;
+    }
+
+    .hero:before,.hero:after{
+      content:"";
+      position:absolute;
+      border-radius:50%;
+      background:rgba(255,255,255,.08);
+    }
+    .hero:before{width:260px;height:260px;right:-70px;top:-100px}
+    .hero:after{width:180px;height:180px;left:-70px;bottom:-100px}
+
+    .hero-inner{
+      position:relative;
+      z-index:1;
+      max-width:1050px;
+      margin:auto;
+      text-align:center;
+    }
+
+    .logo{
+      width:76px;height:76px;
+      margin:0 auto 16px;
+      border-radius:22px;
+      display:grid;
+      place-items:center;
+      background:rgba(255,255,255,.14);
+      border:1px solid rgba(255,255,255,.25);
+      font-size:38px;
+      backdrop-filter:blur(8px);
+    }
+
+    .eyebrow{
+      margin:0 0 8px;
+      font-size:13px;
+      letter-spacing:2px;
+      text-transform:uppercase;
+      opacity:.82;
+      font-weight:700;
+    }
+
+    h1{
+      margin:0;
+      font-size:clamp(30px,6vw,52px);
+      line-height:1.08;
+      letter-spacing:-1px;
+    }
+
+    .subtitle{
+      max-width:650px;
+      margin:14px auto 0;
+      font-size:16px;
+      line-height:1.6;
+      opacity:.9;
+    }
+
+    .container{
+      max-width:1050px;
+      margin:-38px auto 0;
+      padding:0 20px 50px;
+      position:relative;
+      z-index:2;
+    }
+
+    .welcome{
+      background:var(--card);
+      border-radius:20px;
+      box-shadow:var(--shadow);
+      padding:22px 24px;
+      margin-bottom:24px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+    }
+
+    .welcome strong{font-size:18px}
+    .welcome p{
+      margin:5px 0 0;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .home-btn{
+      flex:0 0 auto;
+      text-decoration:none;
+      color:var(--primary);
+      font-weight:700;
+      background:#edf5ff;
+      padding:11px 16px;
+      border-radius:12px;
+      transition:.2s;
+    }
+    .home-btn:hover{transform:translateY(-2px);background:#e3effc}
+
+    .section-title{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      margin:30px 2px 14px;
+    }
+    .section-title h2{margin:0;font-size:20px}
+    .section-title span{
+      font-size:20px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:18px;
+    }
+
+    .card{
+      position:relative;
+      display:flex;
+      align-items:center;
+      gap:18px;
+      min-height:150px;
+      padding:25px;
+      background:var(--card);
+      border:1px solid #e7edf4;
+      border-radius:20px;
+      box-shadow:0 8px 24px rgba(18,59,109,.07);
+      text-decoration:none;
+      color:inherit;
+      overflow:hidden;
+      transition:transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+    }
+
+    .card:after{
+      content:"";
+      position:absolute;
+      width:90px;height:90px;
+      right:-35px;bottom:-45px;
+      border-radius:50%;
+      background:#edf5ff;
+    }
+
+    .card:hover{
+      transform:translateY(-5px);
+      box-shadow:0 16px 35px rgba(18,59,109,.14);
+      border-color:#c9def3;
+    }
+
+    .icon{
+      flex:0 0 64px;
+      width:64px;height:64px;
+      display:grid;
+      place-items:center;
+      border-radius:18px;
+      background:linear-gradient(135deg,#eaf4ff,#f5f9ff);
+      font-size:31px;
+      position:relative;
+      z-index:1;
+    }
+
+    .content{position:relative;z-index:1}
+    .content h3{
+      margin:0 0 7px;
+      font-size:18px;
+    }
+    .content p{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.5;
+    }
+
+    .arrow{
+      margin-left:auto;
+      position:relative;
+      z-index:1;
+      font-size:24px;
+      color:#8ba3bb;
+      transition:.2s;
+    }
+    .card:hover .arrow{color:var(--primary);transform:translateX(4px)}
+
+    .note{
+      margin-top:24px;
+      background:#fffaf0;
+      border:1px solid #f7e4b4;
+      border-radius:16px;
+      padding:16px 18px;
+      color:#6f5720;
+      font-size:13px;
+      line-height:1.55;
+    }
+
+    footer{
+      text-align:center;
+      color:#8392a2;
+      font-size:12px;
+      padding:8px 20px 28px;
+    }
+
+    @media(max-width:700px){
+      .hero{padding:36px 18px 64px}
+      .container{padding:0 14px 35px}
+      .grid{grid-template-columns:1fr;gap:14px}
+      .welcome{align-items:flex-start;flex-direction:column}
+      .home-btn{width:100%;text-align:center}
+      .card{min-height:125px;padding:20px}
+      .icon{width:56px;height:56px;flex-basis:56px;font-size:27px}
+    }
+  </style>
+</head>
+<body>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="logo">🏫</div>
+      <p class="eyebrow">Portal Sekolah</p>
+      <h1>Kokurikulum</h1>
+      <p class="subtitle">
+        Pusat sehenti untuk mengakses maklumat, dashboard dan pautan berkaitan kokurikulum.
+      </p>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <div class="welcome">
+      <div>
+        <strong>Selamat datang ke Portal Kokurikulum</strong>
+        <p>Sila pilih bahagian yang ingin anda akses.</p>
+      </div>
+      <a class="home-btn" href="https://linktr.ee/sakti96" target="_blank" rel="noopener">
+        ← Kembali ke Linktree
+      </a>
+    </div>
+
+    <div class="section-title">
+      <span>📌</span>
+      <h2>Pautan Utama</h2>
+    </div>
+
+    <section class="grid">
+
+      <!-- BUTTON 1: DASHBOARD KOKURIKULUM -->
+      <!-- GANTIKAN URL DI BAWAH DENGAN LINK ANDA -->
+      <a class="card"
+         href="dashboard_pilihan_kokurikulum.html"
+         target="_blank"
+         rel="noopener">
+        <div class="icon">📊</div>
+        <div class="content">
+          <h3>Dashboard Kokurikulum</h3>
+          <p>Pilih dashboard kokurikulum mengikut tahun.</p>
+        </div>
+        <div class="arrow">›</div>
+      </a>
+
+      <!-- BUTTON 2: MAKLUMAT KOKURIKULUM -->
+      <!-- GANTIKAN URL DI BAWAH DENGAN LINK ANDA -->
+      <a class="card"
+         href="#"
+         target="_blank"
+         rel="noopener">
+        <div class="icon">📚</div>
+        <div class="content">
+          <h3>Maklumat Kokurikulum</h3>
+          <p>Rujukan, panduan, dokumen dan informasi berkaitan kokurikulum.</p>
+        </div>
+        <div class="arrow">›</div>
+      </a>
+
+    </section>
+
+    <div class="section-title">
+      <span>➕</span>
+      <h2>Ruang Pautan Tambahan</h2>
+    </div>
+
+    <section class="grid">
+
+      <!-- DUPLIKASI BLOK CARD INI UNTUK TAMBAH BUTTON -->
+      <a class="card" href="#" target="_blank" rel="noopener">
+        <div class="icon">🔗</div>
+        <div class="content">
+          <h3>Tambah Pautan</h3>
+          <p>Ruang untuk pautan kokurikulum yang akan ditambah kemudian.</p>
+        </div>
+        <div class="arrow">›</div>
+      </a>
+
+      <a class="card" href="#" target="_blank" rel="noopener">
+        <div class="icon">📁</div>
+        <div class="content">
+          <h3>Tambah Pautan</h3>
+          <p>Ruang untuk dokumen, borang atau sistem berkaitan.</p>
+        </div>
+        <div class="arrow">›</div>
+      </a>
+
+    </section>
+
+    <div class="note">
+      💡 <strong>Nota:</strong> Untuk memasukkan pautan sebenar, buka fail HTML ini menggunakan
+      Notepad/VS Code dan gantikan <strong>href="#"</strong> dengan URL anda.
+    </div>
+
+  </main>
+
+  <footer>
+    Portal Kokurikulum · Sila kemas kini pautan mengikut keperluan
+  </footer>
+
+</body>
+</html>

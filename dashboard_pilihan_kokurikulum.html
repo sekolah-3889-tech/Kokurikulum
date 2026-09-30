@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard Kokurikulum</title>
+<style>
+:root{
+  --primary:#123b6d;
+  --primary2:#1d5d9b;
+  --bg:#f4f7fb;
+  --text:#17324d;
+  --muted:#6b7c8f;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  min-height:100vh;
+  font-family:"Segoe UI",Arial,sans-serif;
+  color:var(--text);
+  background:linear-gradient(180deg,#eef5fc,#fff);
+}
+.hero{
+  background:linear-gradient(135deg,var(--primary),var(--primary2));
+  color:white;
+  padding:50px 20px 80px;
+  text-align:center;
+}
+.logo{
+  width:76px;height:76px;
+  margin:0 auto 15px;
+  border-radius:22px;
+  display:grid;place-items:center;
+  background:rgba(255,255,255,.14);
+  font-size:38px;
+}
+h1{margin:0;font-size:clamp(30px,6vw,48px)}
+.hero p{margin:12px auto 0;max-width:600px;opacity:.9}
+.container{
+  max-width:900px;
+  margin:-45px auto 0;
+  padding:0 18px 45px;
+  position:relative;
+}
+.back{
+  display:inline-block;
+  margin-bottom:20px;
+  padding:10px 15px;
+  border-radius:11px;
+  background:white;
+  color:var(--primary);
+  text-decoration:none;
+  font-weight:700;
+  box-shadow:0 7px 20px rgba(18,59,109,.08);
+}
+.title{
+  background:white;
+  padding:22px;
+  border-radius:18px;
+  box-shadow:0 10px 28px rgba(18,59,109,.08);
+  margin-bottom:20px;
+}
+.title h2{margin:0 0 5px}
+.title p{margin:0;color:var(--muted)}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:18px;
+}
+.card{
+  min-height:190px;
+  padding:28px;
+  border-radius:20px;
+  background:white;
+  border:1px solid #e6edf5;
+  box-shadow:0 9px 25px rgba(18,59,109,.08);
+  text-decoration:none;
+  color:var(--text);
+  transition:.22s;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:flex-start;
+}
+.card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 17px 34px rgba(18,59,109,.14);
+}
+.icon{
+  width:62px;height:62px;
+  border-radius:17px;
+  display:grid;place-items:center;
+  background:#edf5ff;
+  font-size:30px;
+  margin-bottom:17px;
+}
+.card h3{margin:0 0 7px;font-size:21px}
+.card p{margin:0;color:var(--muted);line-height:1.5}
+.arrow{
+  margin-top:18px;
+  font-weight:800;
+  color:var(--primary);
+}
+@media(max-width:650px){
+  .grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="logo">📊</div>
+  <h1>Dashboard Kokurikulum</h1>
+  <p>Pilih dashboard mengikut tahun yang ingin diakses.</p>
+</header>
+
+<main class="container">
+  <a class="back" href="dashboard_kokurikulum.html">← Kembali</a>
+
+  <section class="title">
+    <h2>Dashboard Mengikut Tahun</h2>
+    <p>Sila pilih tahun dashboard kokurikulum.</p>
+  </section>
+
+  <section class="grid">
+    <a class="card"
+       href="https://datastudio.google.com/u/0/reporting/1994676c-6cba-41e5-999b-dec5b40579c9/page/o9lkD"
+       target="_blank" rel="noopener">
+      <div class="icon">📈</div>
+      <h3>Dashboard Kokurikulum 2025</h3>
+      <p>Dashboard kokurikulum bagi tahun 2025.</p>
+      <div class="arrow">Buka Dashboard →</div>
+    </a>
+
+    <a class="card"
+       href="https://www.appsheet.com/start/5999507c-3e58-4ee6-b2f0-a3927b77a157?platform=desktop#appName=EPKSV42-2026-58646287-26-01-19&vss=H4sIAAAAAAAAA62PTQrCMBCF7_LWWbrKVlxIUYSKG-MiNlMotkkxabWE3MK91_BYHsHEH8RtcTfzhu_jjUdf0Sl3sjiAb_13y2gAhxdYDy0JcIGp0e5oagEmsJTNK7xfLzdaZXk_SZNAQNixj8WRBfdjJPwfTRgqRdpVZUXHZEx8NL3peE5sDH5JBIamc3Jf0_OFSIYQs9IUnSW1ibVG17FzPTu3UquFUVFcytpSeAAgA3OfgwEAAA==&view=%F0%9F%94%B8ePKSv4%F0%9F%94%B8"
+       target="_blank" rel="noopener">
+      <div class="icon">🚀</div>
+      <h3>Dashboard Kokurikulum 2026</h3>
+      <p>Dashboard kokurikulum bagi tahun 2026 melalui AppSheet.</p>
+      <div class="arrow">Buka Dashboard →</div>
+    </a>
+  </section>
+</main>
+</body>
+</html>
